@@ -49,7 +49,7 @@ export default function request(
     ...init,
   })
     .then(response =>
-      response.ok ?
+        response.ok || response.status == 429 ?
         response :
         response.text()
           .then((text) => {
